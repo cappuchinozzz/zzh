@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Feature Demo</title>
+</head>
+
+<body>
+    <button onclick="showDialog()">弹出对话框</button>
+    <button onclick="changeBackgroundColor()">改变背景颜色</button>
+    <div id="timeDisplay">当前时间将显示在这里</div>
+
+    <script>
+        function showDialog() {
+            alert('这是一个弹出对话框！');
+        }
+
+        function changeBackgroundColor() {
+            const randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
+            document.body.style.backgroundColor = randomColor;
+        }
+
+        function displayCurrentTime() {
+            const now = new Date();
+            const timeString = now.toLocaleTimeString();
+            document.getElementById('timeDisplay').textContent = `当前时间: ${timeString}`;
+        }
+
+        // 每秒更新一次时间
+        setInterval(displayCurrentTime, 1000);
+        // 页面加载时显示一次时间
+        displayCurrentTime();
+    </script>
+</body>
+
+</html>
+    
